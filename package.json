@@ -1,0 +1,51 @@
+{
+  "name": "book-app",
+  "version": "1.0.0",
+  "description": "creating a book app.This project is going to be built from scratch, without webpack, browserify or Gulp.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node ./api/index.js",
+    "db": "sequelize db:migrate:undo:all && sequelize db:migrate",
+    "pretest": "sequelize db:migrate:undo:all --env=test && sequelize db:migrate --env=test",
+    "test": "SET NODE_ENV=test && nyc --require @babel/register  mocha ./api/test/test.js --timeout 20000 --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MajemiteJames/book-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MajemiteJames/book-app/issues"
+  },
+  "homepage": "https://github.com/MajemiteJames/book-app#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "pg": "^7.12.0",
+    "sequelize": "^5.11.0",
+    "pg-hstore": "^2.3.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "mocha": "^6.2.0",
+    "sequelize-cli": "^5.5.0",
+    "nyc": "^14.1.1"
+  }
+}
